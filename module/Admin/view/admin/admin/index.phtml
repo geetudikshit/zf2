@@ -1,0 +1,53 @@
+<div class="form-signin">
+      <div class="text-center">
+        <img src="assets/img/logo.png" alt="Metis Logo">
+      </div>
+      <hr>
+      <div class="tab-content">
+        <div id="login" class="tab-pane active">
+          <?php
+            $form = $this->form;
+            $form->setAttribute('action', $this->url('admin', array('action' => 'index')));
+            $form->prepare();
+            echo $this->form()->openTag($form);
+          ?>
+            <p class="text-muted text-center">
+              Enter your username and password
+            </p>
+            <?php echo $this->formElement($form->get('username')); ?>
+            <?php echo $this->formElement($form->get('password')); ?>
+            <div class="checkbox">
+              <label>
+                <?php echo $this->formElement($form->get('remember')); ?>Remember Me
+              </label>
+            </div>
+            <?php echo $this->formElement($form->get('submit')); ?>
+          <?php echo $this->form()->closeTag();?>
+        </div>
+        <div id="forgot" class="tab-pane">
+          <form action="index.html">
+            <p class="text-muted text-center">Enter your valid e-mail</p>
+            <input type="email" placeholder="mail@domain.com" class="form-control">
+            <br>
+            <button class="btn btn-lg btn-danger btn-block" type="submit">Recover Password</button>
+          </form>
+        </div>
+        <div id="signup" class="tab-pane">
+          <form action="index.html">
+            <input type="text" placeholder="username" class="form-control top">
+            <input type="email" placeholder="mail@domain.com" class="form-control middle">
+            <input type="password" placeholder="password" class="form-control middle">
+            <input type="password" placeholder="re-password" class="form-control bottom">
+            <button class="btn btn-lg btn-success btn-block" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <ul class="list-inline">
+          <li> <a class="text-muted" href="#login" data-toggle="tab">Login</a>  </li>
+          <li> <a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a>  </li>
+          <li> <a class="text-muted" href="#signup" data-toggle="tab">Signup</a>  </li>
+        </ul>
+      </div>
+    </div>
